@@ -9,19 +9,19 @@ namespace utilities
    {
       [TestMethod]
       public void RoundUp_Minutes()
-		{
+      {
          int granularity_min = 2;
          var startTime = DateTime.Now;
          Console.WriteLine(startTime);
 
          foreach (var i in Enumerable.Range(-37, 37))
-			{
+         {
             var testTime = startTime.AddMinutes(i);
             var roundedTime = testTime.RoundUp(TimeSpan.FromMinutes(granularity_min));
             Console.WriteLine(testTime + " -> " + roundedTime);
             Assert.AreEqual(0, roundedTime.Second);
-			}
-		}
+         }
+      }
 
       [TestMethod]
       public void RoundUp_100ms()
@@ -109,7 +109,7 @@ namespace utilities
 
       [TestMethod]
       public void Trim()
-		{
+      {
          var now = DateTime.Now;
 
          Assert.IsTrue(now.Trim(TimeSpan.TicksPerSecond).Millisecond == 0);
