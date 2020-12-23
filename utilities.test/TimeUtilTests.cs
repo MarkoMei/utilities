@@ -2,10 +2,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 
-namespace utilities
+namespace utilities.test
 {
    [TestClass]
-   public class UnitTests
+   public class TimeUtilTests
    {
       [TestMethod]
       public void RoundUp_Minutes()
