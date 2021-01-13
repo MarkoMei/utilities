@@ -6,6 +6,7 @@ namespace utilities
    {
       /// <summary>
       /// Round up the datetime using the provided resolution.
+      /// NOTE! Does not round up, if the time's resolution already is rounded to the desired resolution.
       /// </summary>
       /// <param name="datetime">time to round up</param>
       /// <param name="resolution">desired resolution, e.g. TimeSpan.FromSeconds(1)</param>
@@ -16,7 +17,7 @@ namespace utilities
       }
 
       /// <summary>
-      /// Trims a datetime by reducing accuracy to the desired level.
+      /// Trim (RoundDown) a datetime by reducing accuracy to the desired level.
       /// </summary>
       /// <param name="datetime">this DateTime (Trim is an extension method)</param>
       /// <param name="ticks">Level of accurary required, e.g. TimeSpan.TicksPerSecond</param>

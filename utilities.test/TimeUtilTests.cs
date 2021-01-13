@@ -37,6 +37,16 @@ namespace utilities.test
       }
 
       [TestMethod]
+      public void RoundUp_ExactHour_NoRounding()
+      {
+         var timenow = new DateTime(2021, 1, 8, 14, 0, 0, DateTimeKind.Local);
+         var roundedTime = timenow.RoundUp(TimeSpan.FromHours(1));
+         Assert.AreEqual(14, roundedTime.Hour);
+
+         Assert.AreEqual(15, timenow.AddTicks(1).RoundUp(TimeSpan.FromHours(1)).Hour);
+      }
+
+      [TestMethod]
       public void TimeToNextFullHour()
       {
          var startTime = DateTime.Now;
@@ -119,6 +129,16 @@ namespace utilities.test
          Assert.IsTrue(now.Trim(TimeSpan.TicksPerDay).Minute == 0);
          Assert.IsTrue(now.Trim(TimeSpan.TicksPerDay).Second == 0);
          Assert.IsTrue(now.Trim(TimeSpan.TicksPerDay).Millisecond == 0);
+      }
+
+      [TestMethod]
+      public void Trim_ExactHour_NoTrimming()
+      {
+         var timenow = new DateTime(2021, 1, 8, 14, 0, 0, DateTimeKind.Local);
+         var trimmedTime = timenow.Trim(TimeSpan.TicksPerHour);
+         Assert.AreEqual(14, trimmedTime.Hour);
+
+         Assert.AreEqual(13, timenow.AddTicks(-1).Trim(TimeSpan.TicksPerHour).Hour);
       }
    }
 }
